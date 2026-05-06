@@ -1,0 +1,40 @@
+.flashcards { padding: 28px 20px 80px; max-width: 620px; margin: 0 auto; }
+.flashcards__header { margin-bottom: 18px; }
+.flashcards__heading { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+.flashcards__sub { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+.flashcards__controls { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.flashcards__counter { font-size: 13px; color: var(--text-2); font-family: var(--mono); flex-shrink: 0; }
+.flashcards__prog-track { flex: 1; height: 3px; background: var(--border-soft); border-radius: 3px; overflow: hidden; }
+.flashcards__prog-fill { height: 100%; background: var(--sage); border-radius: 3px; transition: width .3s ease; }
+.flashcards__mastered-label { font-size: 12px; color: var(--text-3); font-family: var(--mono); flex-shrink: 0; }
+.flashcards__card-outer { perspective: 1000px; cursor: pointer; margin-bottom: 14px; min-height: 210px; }
+.flashcards__card-inner { position: relative; min-height: 210px; transition: transform .42s cubic-bezier(.4,0,.2,1); transform-style: preserve-3d; }
+.flashcards__card-outer--flipped .flashcards__card-inner { transform: rotateY(180deg); }
+.flashcards__face { position: absolute; inset: 0; padding: 28px 24px; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-radius: 14px; min-height: 210px; }
+.flashcards__face--front { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+.flashcards__face--back { background: var(--sage-light); border: 1px solid var(--sage-border); transform: rotateY(180deg); }
+.flashcards__face-tag { font-size: 11px; font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: .07em; padding: 3px 8px; border-radius: 10px; margin-bottom: 14px; }
+.flashcards__face-tag--question { background: var(--amber-border); color: var(--amber); }
+.flashcards__face-tag--answer { background: var(--sage-border); color: var(--sage); }
+.flashcards__question { font-family: var(--serif); font-size: 17px; color: var(--text); line-height: 1.55; }
+.flashcards__answer { font-size: 14px; color: var(--text); line-height: 1.65; }
+.flashcards__tap-hint { font-size: 12px; color: var(--text-3); margin-top: 12px; }
+.flashcards__actions { display: flex; gap: 8px; justify-content: center; margin-bottom: 12px; animation: fadeUp .2s ease; }
+.flashcards__again-btn { height: 36px; padding: 0 18px; border: 1px solid var(--border); border-radius: var(--r-pill); background: var(--surface); font-size: 13px; color: var(--text-2); cursor: pointer; font-family: var(--font); }
+.flashcards__again-btn:hover { background: var(--surface2); color: var(--text); }
+.flashcards__good-btn { height: 36px; padding: 0 18px; border: 1px solid var(--sage-border); border-radius: var(--r-pill); background: var(--sage-light); font-size: 13px; color: var(--sage); font-weight: 500; cursor: pointer; font-family: var(--font); }
+.flashcards__good-btn:hover { background: var(--sage); color: #fff; border-color: var(--sage); }
+.flashcards__nav-row { display: flex; justify-content: space-between; margin-top: 8px; }
+.flashcards__nav-btn { height: 32px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--surface); font-size: 13px; color: var(--text-2); cursor: pointer; font-family: var(--font); }
+.flashcards__nav-btn:hover:not(:disabled) { background: var(--surface2); color: var(--text); }
+.flashcards__nav-btn:disabled { opacity: .35; cursor: not-allowed; }
+.flashcards__all-done { text-align: center; padding: 40px 20px; animation: fadeUp .3s ease; }
+.flashcards__done-emoji { font-size: 40px; margin-bottom: 12px; }
+.flashcards__done-title { font-family: var(--serif); font-size: 22px; color: var(--text); margin-bottom: 6px; }
+.flashcards__done-sub { font-size: 14px; color: var(--text-2); margin-bottom: 24px; }
+.flashcards__quiz-cta { height: 38px; padding: 0 22px; background: var(--sage); color: #fff; border: none; border-radius: var(--r-sm); font-size: 13px; font-weight: 500; font-family: var(--font); cursor: pointer; }
+.flashcards__quiz-cta:hover { opacity: .87; }
+.flashcards__locked { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px; gap: 12px; text-align: center; padding: 28px 20px 80px; max-width: 620px; margin: 0 auto; }
+.flashcards__locked-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--surface2); display: flex; align-items: center; justify-content: center; }
+.flashcards__locked-title { font-size: 14px; font-weight: 500; color: var(--text-2); }
+.flashcards__locked-sub { font-size: 13px; color: var(--text-3); line-height: 1.5; max-width: 240px; }

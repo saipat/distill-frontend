@@ -1,0 +1,10 @@
+.topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 52px; position: sticky; top: 0; z-index: 100; gap: 12px; }
+.topbar__wordmark { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--text); flex-shrink: 0; }
+.topbar__wordmark b { font-style: normal; font-weight: 500; }
+.topbar__nav { display: flex; gap: 4px; overflow-x: auto; }
+.topbar__nav-btn { height: 34px; padding: 0 12px; border: 1px solid var(--border); background: var(--surface); font-size: 13px; color: var(--text-2); border-radius: var(--r-pill); display: flex; align-items: center; gap: 5px; white-space: nowrap; flex-shrink: 0; transition: background .15s, color .15s, border-color .15s; cursor: pointer; font-family: var(--font); }
+.topbar__nav-btn:hover:not(:disabled) { background: var(--surface2); color: var(--text); }
+.topbar__nav-btn--active { background: var(--text); color: var(--surface); border-color: var(--text); }
+.topbar__nav-btn:disabled { opacity: .45; cursor: not-allowed; }
+.topbar__new-btn { height: 30px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--r-pill); background: none; font-size: 12px; color: var(--text-2); flex-shrink: 0; cursor: pointer; font-family: var(--font); transition: border-color .15s, color .15s; }
+.topbar__new-btn:hover { border-color: var(--text-2); color: var(--text); }

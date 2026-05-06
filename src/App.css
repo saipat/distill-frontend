@@ -1,0 +1,2 @@
+.app { min-height: 100vh; background: var(--bg); }
+.app-content { padding: 0 20px; }
