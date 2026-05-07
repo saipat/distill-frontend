@@ -2,8 +2,8 @@ import { useState, useRef } from 'react'
 import type { VideoData, QuizQuestion } from '../types'
 import './QuizTab.css'
 
-declare let SpeechRecognition: any
-declare let webkitSpeechRecognition: any
+// declare let SpeechRecognition: any
+// declare let webkitSpeechRecognition: any
 
 interface QuizTabProps {
   videoData: VideoData | null
@@ -27,7 +27,7 @@ export default function QuizTab({ videoData }: QuizTabProps) {
   const [typedAnswer, setTypedAnswer] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [feedback, setFeedback]       = useState<{ correct: boolean; explanation: string } | null>(null)
-  const recognitionRef                = useRef<SpeechRecognition | null>(null)
+  const recognitionRef = useRef<any>(null)
 
   if (!videoData) {
     return (
@@ -48,23 +48,30 @@ export default function QuizTab({ videoData }: QuizTabProps) {
   const score     = results.filter(r => r.correct).length
   const LETTERS   = ['A', 'B', 'C', 'D']
 
-  function toggleMic() {
-    if (isRecording) { recognitionRef.current?.stop(); setIsRecording(false); return }
-    const SR = window.SpeechRecognition || (window as unknown as { webkitSpeechRecognition?: typeof SpeechRecognition }).webkitSpeechRecognition
-    if (!SR) { alert('Speech recognition not supported. Try Chrome.'); return }
-    const rec = new SR()
-    rec.lang = 'en-US'
-    rec.interimResults = false
-    rec.onresult = (e: SpeechRecognitionEvent) => {
-      const t = e.results[0][0].transcript
-      setTypedAnswer(prev => prev ? `${prev} ${t}` : t)
-    }
-    rec.onend  = () => setIsRecording(false)
-    rec.onerror = () => setIsRecording(false)
-    recognitionRef.current = rec
-    rec.start()
-    setIsRecording(true)
+ function toggleMic() {
+  if (isRecording) {
+    recognitionRef.current?.stop()
+    setIsRecording(false)
+    return
   }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+  if (!SR) { alert('Speech recognition not supported. Try Chrome.'); return }
+
+  const rec = new SR()
+  rec.lang = 'en-US'
+  rec.interimResults = false
+  rec.onresult = (e: any) => {
+    const t = e.results[0][0].transcript
+    setTypedAnswer((prev: string) => prev ? `${prev} ${t}` : t)
+  }
+  rec.onend  = () => setIsRecording(false)
+  rec.onerror = () => setIsRecording(false)
+  recognitionRef.current = rec
+  rec.start()
+  setIsRecording(true)
+}
 
   function handleOptionSelect(option: string) {
     if (answerState !== 'unanswered') return
