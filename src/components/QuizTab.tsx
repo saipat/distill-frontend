@@ -2,6 +2,9 @@ import { useState, useRef } from 'react'
 import type { VideoData, QuizQuestion } from '../types'
 import './QuizTab.css'
 
+declare let SpeechRecognition: any
+declare let webkitSpeechRecognition: any
+
 interface QuizTabProps {
   videoData: VideoData | null
 }
