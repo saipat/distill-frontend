@@ -52,7 +52,7 @@ export default function SummaryTab({ videoData, onDataLoaded, onTabChange }: Sum
     setLoadingStep('summarizing')
 
     try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/distill`, {git add .
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/distill`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url.trim() }),
