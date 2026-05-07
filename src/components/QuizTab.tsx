@@ -27,7 +27,7 @@ export default function QuizTab({ videoData }: QuizTabProps) {
   const [typedAnswer, setTypedAnswer] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [feedback, setFeedback]       = useState<{ correct: boolean; explanation: string } | null>(null)
-  const recognitionRef = useRef<unknown>(null)
+  const recognitionRef = useRef<{ stop: () => void; start: () => void; lang: string; interimResults: boolean; onresult: unknown; onend: unknown; onerror: unknown } | null>(null)
 
   if (!videoData) {
     return (
